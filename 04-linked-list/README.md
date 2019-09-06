@@ -266,3 +266,6 @@ Watch this video on shared pointers https://www.youtube.com/watch?v=qUDAkDvoLas
 Change our raw `Node*` to shared pointers (`shared_ptr<Node>`). You should be able to delete the destructors for both `Node` and `IntList`, and valgrind will still report no memory leaks.
 
 ### Where to go from here?
+
+- Make an iterator class so we can use std::find and other algorithms
+- Convert to a template class so we can store other types of items (not just ints)
