@@ -1,7 +1,7 @@
+#include <memory>
 class IntList {
 public:
   IntList();
-  ~IntList();
   void push_front(int);
   bool contains(int) const;
   void remove(int);
@@ -9,13 +9,12 @@ public:
 private:
   class Node {
   public:
-    Node(int, Node*);
+    Node(int, std::shared_ptr<Node>);
     Node() = delete;
-    ~Node();
 
     int data;
-    Node* next;
+    std::shared_ptr<Node> next;
 
   };
-  Node* head;
+  std::shared_ptr<Node> head;
 };

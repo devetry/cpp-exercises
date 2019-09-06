@@ -1,6 +1,8 @@
 {
   "files.associations": {
     "*.html": "html",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "memory": "cpp",
+    "type_traits": "cpp"
   }
 }

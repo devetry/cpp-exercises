@@ -1,18 +1,11 @@
 #include "int_list.hpp"
+#include <memory>
 
-IntList::Node::Node(int d, Node* n): data{d}, next{n} {}
-IntList::Node::~Node() {
-  if (next != nullptr) delete next;
-}
+IntList::Node::Node(int d, std::shared_ptr<Node> n): data{d}, next{n} {}
 IntList::IntList(): head{nullptr} {}
 
-IntList::~IntList() {
-  if (head != nullptr) delete head;
-}
-
 void IntList::push_front(int val) {
-  auto n = new Node(val, head);
-  head = n;
+  head = std::shared_ptr<Node>(new Node(val, head));
 }
 
 bool IntList::contains(int val) const {
@@ -26,9 +19,7 @@ bool IntList::contains(int val) const {
 
 void IntList::remove(int val) {
   if (head != nullptr && head->data == val) {
-    auto nodeToDelete = head;
     head = head->next;
-    delete nodeToDelete;
     return;
   }
 
@@ -38,8 +29,6 @@ void IntList::remove(int val) {
     curr = curr->next;
   }
   if (curr != nullptr && curr->next != nullptr && curr->next->data == val) {
-    auto nodeToDelete = curr->next;
     curr->next = curr->next->next;
-    delete nodeToDelete;
   }
 }

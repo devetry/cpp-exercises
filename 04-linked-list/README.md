@@ -259,6 +259,10 @@ One way to fix this would be to iterate over the linked list, calling `delete` o
 
 Once I made those changes, I was back at "definitely lost: 0 bytes, indirectly lost: 0 bytes". In the next section we'll see a modern, less error-prone way of attacking this problem.
 
-### automatic deletion with unique_ptr
+### automatic deletion with shared_ptr
 
-Watch this video on unique pointers https://www.youtube.com/watch?v=YeI6V2O5BFE
+Watch this video on shared pointers https://www.youtube.com/watch?v=qUDAkDvoLas
+
+Change our raw `Node*` to shared pointers (`shared_ptr<Node>`). You should be able to delete the destructors for both `Node` and `IntList`, and valgrind will still report no memory leaks.
+
+### Where to go from here?
