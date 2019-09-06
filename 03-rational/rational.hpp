@@ -26,22 +26,28 @@ public:
   // produce a string like "{numerator} / {denominator}"
   std::string toString() const;
 
-  // //        Using "+" on a Rational
-  // //               │  and another Rational
-  // // produces a    │        │
-  // // │ new Rational│        │
-  // // ▼             ▼        ▼
-  // Rational operator+ (const Rational&) const;
-  // //                     ▲                ▲
-  // //                     │                │
-  // //  The other Rational is not modified  │
-  // //                                      │
-  // //                 And neither is this one
+  //        Using "+" on a Rational
+  //               │  and another Rational
+  // produces a    │        │
+  // │ new Rational│        │
+  // ▼             ▼        ▼
+  Rational operator+ (const Rational&) const;
+  //                     ▲                ▲
+  //                     │                │
+  //  The other Rational is not modified  │
+  //                                      │
+  //                 And neither is this one
 
 
-  // Rational operator- (const Rational&) const;
-  // Rational operator* (const Rational&) const;
-
+  Rational operator- (const Rational&) const;
+  Rational operator* (const Rational&) const;
+  Rational operator/ (const Rational&) const;
+  bool operator== (const Rational&) const;
+  bool operator!= (const Rational&) const;
+  bool operator> (const Rational&) const;
+  bool operator>= (const Rational&) const;
+  bool operator< (const Rational&) const;
+  bool operator<= (const Rational&) const;
 };
 
 #endif
