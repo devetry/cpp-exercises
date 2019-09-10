@@ -86,3 +86,6 @@ Now if we were to except while writing out to the terminal we would still releas
 
 ## Try it yourself
 Can you get the test passing in `concurrency.cpp`? Let's start off by compiling the program with `make build` and running it: `./concurrency`.
+
+## Additional Resources
+I would highly recommend go through these videos [Cpp Multithreading](https://www.youtube.com/watch?v=LL8wkskDlbs&list=PL5jc9xFGsL8E12so1wlMS0r0hTQoJL74M&index=1)
