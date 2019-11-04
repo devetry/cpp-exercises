@@ -28,7 +28,7 @@ However, the pointers also mean we can grow our list without "running out of roo
 
 ### Got your Node!
 
-Within your `class IntList`, define a nested class called `Node`. this `Node` class will actually be where data is called. However, it should be private, as the only way to interact with it will be by going through `IntList`'s public interface. You should have something like this:
+Within your `class IntList`, define a nested class called `Node`. this `Node` class will actually be where data is stored. However, it should be private, as the only way to interact with it will be by going through `IntList`'s public interface. You should have something like this:
 
 ```cpp
 // int_list.hpp
@@ -245,15 +245,15 @@ Uh oh. What's going on? Think about this sequence
 ```cpp
 { // start of block
   IntList il;
-  il.push_back(1);
-  il.push_back(2);
-  il.push_back(3);
+  il.push_front(1);
+  il.push_front(2);
+  il.push_front(3);
 
   // il goes out of scope here, destructor is called.
 }
 ```
 
-How many times did we call `new`? Well, we used `new` once in each call to `push_back`, so three total times. How many times did we call `delete`? Just the once, in `IntList`'s destructor.
+How many times did we call `new`? Well, we used `new` once in each call to `push_front`, so three total times. How many times did we call `delete`? Just the once, in `IntList`'s destructor.
 
 One way to fix this would be to iterate over the linked list, calling `delete` on each `Node` in the chain. However, that's a bit error prone. A better way is to add a destructor for the `Node`. That way, destroying an `IntList` calls `delete` on the list's `head`. `delete`ing an object also invokes the destructor, so that `delete` calls the destructor on the next `Node`, all the way down the line.
 
