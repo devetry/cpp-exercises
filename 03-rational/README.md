@@ -2,7 +2,7 @@
 
 In this exercise, we'll make a type to represent rational numbers (fractions). Most of the time, we would represent rational numbers using floats, but this allows inaccuracies to accumulate. Our rational class will not have this problem, because we'll store the numerator and denominator using integers.
 
-Scott Meyer's reminds us that "class design is type design". If a rational number type were included in a programming language, what would we expect it to be able to do?
+Scott Meyers reminds us that "class design is type design". If a rational number type were included in a programming language, what would we expect it to be able to do?
 
 - Create from a numerator and denominator
 - Create just from a numerator and assume the denominator is 1
@@ -100,3 +100,4 @@ Uncomment the `[plus]` test block. Run `make` and `./test`.
 ### Draw the rest of the owl
 
 At this point, you likely have a bit more confidence in writing these methods. Go ahead and implement the rest of the functions declared in "rational.hpp".
+
