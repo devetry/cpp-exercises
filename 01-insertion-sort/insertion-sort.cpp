@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#define NUM_ITEMS 8
+
+const int NUM_ITEMS { 8 };
 
 bool isSorted(int arr[], int toIx) {
   for (int ix = 1; ix < toIx; ix++) {
@@ -14,12 +15,13 @@ bool isSorted(int arr[], int toIx) {
 void insertionSort(int arr[NUM_ITEMS]) {
   for (int ix = 1; ix < NUM_ITEMS; ix++) {
     int jx = ix;
-    // while jx > 0 and arr[jx - 1] > arr[jx]
-    //   swap the value stored at arr[jx] with arr[jx - 1]
-    //   decrement jx.
-
-    // invariant: After the ix'th iteration, the array
-    // will be sorted from 0 to ix.
+    while (jx > 0 && arr[jx - 1] > arr[jx])
+    {
+      int temp = arr[jx];
+      arr[jx] = arr[jx - 1];
+      arr[jx - 1] = temp;
+      jx--;
+    }
     assert(isSorted(arr, ix));
   }
 }
