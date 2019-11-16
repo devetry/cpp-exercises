@@ -1,6 +1,6 @@
 ## 02 - Swap
 
-In this module we will be working on passing by reference, function overloading, and function templates. C++ differs from javascript in the fact a value being passed to a function can be by value (we make a copy of the parameter) or by reference (we pass the location in memory where the paramter is located). The advantage to passing by reference is you avoid having to copy large objects when they are needed which can lead to speed up in your code.
+In this module we will be working on passing by reference, function overloading, and function templates. C++ differs from javascript in the fact a value being passed to a function can be by value (we make a copy of the parameter) or by reference (we pass the location in memory where the parameter is located). The advantage to passing by reference is you avoid having to copy large objects when they are needed which can lead to speed up in your code.
 
 Lets take an example:
 I have a function that takes an integer and adds one to it
@@ -18,7 +18,7 @@ int main() {
 
 Would 'i' be changed in the main function? 
 
-It would not. The above function passes by value, so everytime that function is called, a copy of the parameter is made and passed to the function. In the above example only inside `addOne` is 'i' changed to 11;
+It would not. The above function passes by value, so every time that function is called, a copy of the parameter is made and passed to the function. In the above example only inside `addOne` is 'i' changed to 11;
 
 To pass by reference we need to add an ampersand on to the type of the parameter. In this next example 'i' in the `main` function would be changed to 11 after being called by `addOne`.
 
