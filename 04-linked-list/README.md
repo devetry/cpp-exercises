@@ -7,7 +7,7 @@ Linked lists are good way to learn about pointers, memory management, and destru
 
 ### Anything to declare?
 
-To start off, make a file called "int_list.hpp", and add a class definition with those methods. In order to avoid changing the tests, please call your class `IntList`, and use the method names `push_front`, `contains`, and `remove`. Decide what arguments each method needs, and what they should return. Remember: you don't need to write the _code_ yet, just the signatures for the functions (their names, arguments, and return types).
+To start off, use the file called "int_list.hpp", and add a class definition with those methods. In order to avoid changing the tests, please call your class `IntList`, and use the method names `push_front`, `contains`, and `remove`. Decide what arguments each method needs, and what they should return. Remember: you don't need to write the _code_ yet, just the signatures for the functions (their names, arguments, and return types).
 
 ### Some theory.
 
@@ -22,7 +22,7 @@ How will we actually store data? In a linked list, data is stored in "nodes" tha
                 └────────┘    └────────┘    └────────┘    └──────────┘
 ```
 
-Because of the pointer hops, the memory location of 5 is not necessarily near the memory location for -1. We would say that this linked list class exhibits poor "data locality", which is common for linked lists. Structures with poor data locality can slow down your code, because computers uses caches ensure that accessing memory near what you just accessed is very fast. When the data you need is far away, we're not able to take advantage of these caches.
+Because of the pointer hops, the memory location of 5 is not necessarily near the memory location for -1. We would say that this linked list class exhibits poor "data locality", which is common for linked lists. Structures with poor data locality can slow down your code, because a computer uses caches it ensures that accessing memory near what you just accessed is very fast. When the data you need is far away, we're not able to take advantage of these caches.
 
 However, the pointers also mean we can grow our list without "running out of room" and needing to move all our data to a spot with more available space. That would be a very expensive operation, and a linked will never need to do it. So there's a tradeoff between data locality and avoiding re-allocating our object.
 
@@ -119,6 +119,10 @@ Write `IntList::push_front`. Linked lists are particularly good at inserting at 
 
 There are a couple things to be careful of when writing this. In step 2, when you make your `Node`, be sure to create it using `new`. `new` is the C++ way of saying "make this thing on the heap, and give me a _pointer_ to it". If your `Node` is created without `new`, using something like `Node temp(5, head)`, it will be cleaned up when the `push_front` function exits. Plus, the types won't match up: `head` expects to be a `Node*`, so we can't assign a full `Node` to it.
 
+NOTE: If you're using VS Code you'll likely see linting errors telling you your types do not match. 
+  Example - `a value of type "IntList::Node *" cannot be assigned to an entity of type "IntList::Node *`
+  This is a bug in VS Code and can be ignored. 
+
 #### Check your work.
 
 Comment out all but the first two test cases (`[create]` and `[push_front]`). Run `make` and `./test`.
@@ -162,13 +166,16 @@ We also need to preserve the rest of the list after "B". So we should change "A"
                          ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
 ```
 
-Give this a shot. Reach out for help if you get stuck. I ended up making a mistake in mine and needing to ask Jonah for help. Check you work by running the related tests.
+Give this a shot. Reach out for help if you get stuck. I ended up making a mistake in mine and needing to ask Jonah for help. Check your work by running the related tests.
 
 ### Cleaning up after ourselves
 
 If you have experience with C or C++, you may have noticed something that's missing. We're not cleaning up the memory we use! After the delete from the diagram above, Node "B" is still hanging around taking up space. We're going to fix that, but first let's demonstrate the problem.
 
-Install `valgrind`, then run `valgrind ./test`. You'll see the happy green "All tests passed" message, but also something like
+Install `valgrind`
+Note: valgrind is not compatible with MacOS Mojave. Currently using an experimental version by running
+`brew install --HEAD https://raw.githubusercontent.com/sowson/valgrind/master/valgrind.rb`
+Once you have valgrind installed run `valgrind ./test`. You'll see the happy green "All tests passed" message, but also something like
 
 ```
 ==41926==
