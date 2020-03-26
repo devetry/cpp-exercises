@@ -267,5 +267,5 @@ Change our raw `Node*` to shared pointers (`shared_ptr<Node>`). You should be ab
 
 ### Where to go from here?
 
-- Make an iterator class so we can use std::find and other algorithms
 - Convert to a template class so we can store other types of items (not just ints)
+- Make an iterator class so we can use std::find and other algorithms
