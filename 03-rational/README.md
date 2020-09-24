@@ -83,7 +83,7 @@ Uncomment the `[toString]` and `[lowestTerms]` test blocks. Run `make` and `./te
 
 ### Adding two Rationals
 
-In order to add two Rationals, we need to give first find a common denominator. The easiest common denominator between `a / b` and `c / d` is `b*d`. So the sum of two fractions is given by this formula
+In order to add two Rationals, we need to first find a common denominator. The easiest common denominator between `a / b` and `c / d` is `b*d`. So the sum of two fractions is given by this formula
 
 ```
 a     c     a*d + c*b
