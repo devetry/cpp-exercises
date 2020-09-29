@@ -75,16 +75,11 @@ The above would solve our problem and we will get nice output. But it isn't comp
 The standard library has something called a `lock_guard` which is a mutex wrapper that uses __RAII__: Resource Acquisition is Instantiation. Which means that to be able to succeed initializing the object it must acquire the resource, the lock in this case. When we leave the scope of the function, we automatically give up the lock as it is tied to the lifetime of the `lock_guard` object.
 
 ```cpp
-
 mutex mu; //declared outside the function
-
 void shared_print(std::string msg, int id) {
-    {
-        std::lock_guard<std::mutex> lock(mu);
-        std::cout << msg << id << std::endl;
-    }
+ std::lock_guard<std::mutex> lock(mu);
+ std::cout << msg << id << std::endl;
 }
-
 ```
 
 Now if we were to except while writing out to the terminal we would still release the lock!

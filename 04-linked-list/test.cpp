@@ -3,20 +3,20 @@
 #include "int_list.hpp"
 
 TEST_CASE("an IntList can be created", "[create]") {
-  auto il = new IntList<int>;
+  auto il = new IntList;
   REQUIRE(il != nullptr);
   delete il;
 }
 
 TEST_CASE("IntList can accept items", "[push_front]") {
-  IntList<int> il;
+  IntList il;
   il.push_front(2);
   il.push_front(4);
   il.push_front(6);
 }
 
 TEST_CASE("Inserted items can be found", "[contains]") {
-  IntList<int> il;
+  IntList il;
   REQUIRE(!il.contains(1));
   REQUIRE(!il.contains(0));
 
@@ -27,7 +27,7 @@ TEST_CASE("Inserted items can be found", "[contains]") {
 }
 
 TEST_CASE("Inserted items can be removed", "[remove]") {
-  IntList<int> il;
+  IntList il;
   il.push_front(3);
   il.push_front(1);
   il.push_front(2);
