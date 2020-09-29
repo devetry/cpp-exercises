@@ -3,19 +3,7 @@
 #include "../catch.hpp"
 
 // your functions go here
-void ourSwap(std::string& str1, std::string& str2)
-{
-    std::string tmp = str1;
-    str1 = str2;
-    str2 = tmp;
-}
 
-void ourSwap(int& int1, int& int2)
-{
-    int tmp = int1;
-    int1 = int2;
-    int2 = tmp;
-}
 
 
 TEST_CASE( "We can swap strings" ) {
