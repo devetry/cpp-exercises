@@ -3,7 +3,6 @@
     "*.html": "html",
     "iosfwd": "cpp",
     "memory": "cpp",
-    "type_traits": "cpp",
-    "ostream": "cpp"
+    "type_traits": "cpp"
   }
 }
