@@ -4,13 +4,6 @@
 
 // your functions go here
 
-template<class AnyType>
-void ourSwap(AnyType& thing1, AnyType& thing2)
-{
-    AnyType temp = thing1;
-    thing1 = thing2;
-    thing2 = temp;
-}
 
 
 TEST_CASE( "We can swap strings" ) {
